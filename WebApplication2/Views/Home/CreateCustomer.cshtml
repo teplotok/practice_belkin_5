@@ -1,0 +1,18 @@
+﻿@using DBShop.Models
+@model CustomerModel
+<h2>CreateCustomer</h2>
+
+@using (Html.BeginForm("CreateCustomer", "Home", FormMethod.Post))
+{
+    <p>Name</p>
+    @Html.TextBoxFor(m => m.FirstName, "Имя");
+    <br />
+    <p>Last name</p>
+    @Html.TextBoxFor(m => m.SecondName, "Фамилия");
+    <br />
+    <p>Age</p>
+    @Html.TextBoxFor(m => m.Age, "Возраст", new { @type = "number", @Value = "0", @style = "width: 40px" });
+    <br />
+    <br />
+    <button type="submit">submit</button>
+}

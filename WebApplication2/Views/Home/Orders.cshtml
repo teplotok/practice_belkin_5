@@ -1,0 +1,20 @@
+﻿@using DBShop.Models
+@using Microsoft.EntityFrameworkCore;
+@model OrderView
+
+
+@foreach (var item in Model.set)
+{
+    if (item.CustomerId == Model.CustomerId)
+    {
+
+        <p>Product:@item.Product</p>
+        <p>Cost:@item.Cost</p>
+        @Html.ActionLink("Delete", "DeleteOrder", new { orderid = item.Id, customerid = Model.CustomerId })
+        @Html.ActionLink("Update", "UpdateOrder", new { orderid = item.Id })
+        <br />
+        <hr />
+    }
+}
+
+@Html.ActionLink("Add Order", "CreateOrder", new { customerid = Model.CustomerId })

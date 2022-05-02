@@ -1,0 +1,16 @@
+﻿@using DBShop.Models
+@model OrderModel
+<h2>Create Order</h2>
+
+@using (Html.BeginForm("CreateOrder", "Home", FormMethod.Post))
+{
+    @Html.TextBoxFor(m => m.CustomerId, "c_id", new { @Value = Model.CustomerId, @type = "hidden" });
+    <p>Заказ</p>
+    @Html.TextBoxFor(m => m.Product, "Название");
+    <br />
+    <p>Стоимость</p>
+    @Html.TextBoxFor(m => m.Cost, "Стоимость", new { @type = "number", @Value = "0", @style = "width: 40px" });
+    <br />
+    <br />
+    <button type="submit">submit</button>
+}

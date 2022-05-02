@@ -1,0 +1,42 @@
+﻿@using DBShop.Models
+@using Microsoft.EntityFrameworkCore;
+@model DataGrid
+@{
+    ViewBag.Title = "DataGrid";
+}
+
+<h2>DataGrid</h2>
+
+<table>
+    <tr><th>Покупка</th><th>Покупатель</th><th>Стоимость</th></tr>
+    @foreach (var item in Model.Orders)
+    {
+        <tr>
+            <td>@item.Product</td>
+            @foreach (var customer in Model.Customers)
+            {
+                if (@item.CustomerId == @customer.Id)
+                {
+                    <td>@customer.FirstName @customer.SecondName</td>
+                }
+            }
+            <td>@item.Cost</td>
+
+        </tr>
+    }
+
+    <style>
+        table {
+            border: 1px solid grey;
+        }
+
+        th {
+            border: 1px solid grey;
+        }
+
+        td {
+            border: 1px solid grey;
+        }
+    </style>
+</table>
+

@@ -1,0 +1,19 @@
+﻿@using DBShop.Models
+@model CustomerModel
+<h2>UpdateCustomer</h2>
+
+@using (Html.BeginForm("UpdateCustomer", "Home", FormMethod.Post))
+{
+    @Html.TextBoxFor(m => m.Id, "id", new { @Value = Model.Id, @type = "hidden" });
+    <p>Name</p>
+    @Html.TextBoxFor(m => m.FirstName,new { @Value = Model.FirstName });
+    <br />
+    <p>Last name</p>
+    @Html.TextBoxFor(m => m.SecondName, new { @Value = Model.SecondName });
+    <br />
+    <p>Age</p>
+    @Html.TextBoxFor(m => m.Age, "Возраст", new { @type = "number", @Value = Model.Age, @style = "width: 40px" });
+    <br />
+    <br />
+    <button type="submit">submit</button>
+}
